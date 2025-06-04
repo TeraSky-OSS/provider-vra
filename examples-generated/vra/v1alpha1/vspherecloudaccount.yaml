@@ -1,0 +1,26 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: VsphereCloudAccount
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/vspherecloudaccount
+  labels:
+    testing.upbound.io/example-name: this
+  name: this
+spec:
+  forProvider:
+    acceptSelfSignedCert: true
+    associatedCloudAccountIds:
+    - ${var.vra_cloud_account_nsxt_id}
+    dcId: ${var.vra_data_collector_id}
+    description: foobar
+    hostname: ${var.hostname}
+    name: tf-vSphere-account
+    passwordSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    regions: ${var.regions}
+    tags:
+    - key: foo
+      value: bar
+    username: ${var.username}

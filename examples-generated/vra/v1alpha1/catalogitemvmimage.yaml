@@ -1,0 +1,24 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: CatalogItemVMImage
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/catalogitemvmimage
+  labels:
+    testing.upbound.io/example-name: catalog_item_vm_image
+  name: catalog-item-vm-image
+spec:
+  forProvider:
+    cloudConfig: |-
+      #cloud-config
+      # Sample cloud-config creating an admin user. Items in {{}} will appear as user inputs when deploying the VM.
+      users:
+        - name: {{user_name}}
+          plain_text_passwd: {{password}}
+          lock_passwd: false
+          sudo:
+            - ALL=(ALL) NOPASSWD:ALL
+          groups: sudo
+    description: Catalog Item [terraform-vm-image] created by Terraform
+    imageName: ${var.image_name}
+    name: terraform-vm-image
+    projectId: ${var.project_id}

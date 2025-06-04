@@ -1,0 +1,12 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: CatalogItemEntitlement
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/catalogitementitlement
+  labels:
+    testing.upbound.io/example-name: this
+  name: this
+spec:
+  forProvider:
+    catalogItemId: ${var.catalog_item_id}
+    projectId: ${var.project_id}

@@ -1,0 +1,19 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: PolicyDay2Action
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/policyday2action
+  labels:
+    testing.upbound.io/example-name: policy_day2_action
+  name: policy-day2-action
+spec:
+  forProvider:
+    actions:
+    - Deployment.ChangeLease
+    - Deployment.EditDeployment
+    authorities:
+    - USER:admin
+    - GROUP:vraadamadmins@
+    description: Approval Policy [terraform-day2-action-policy] created by Terraform
+    enforcementType: HARD
+    name: terraform-day2-action-policy

@@ -1,0 +1,29 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: PolicyIaaSResource
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/policyiaasresource
+  labels:
+    testing.upbound.io/example-name: policy_iaas_resource
+  name: policy-iaas-resource
+spec:
+  forProvider:
+    description: IaaS Resource Policy [terraform-iaas-resource-policy] created by
+      Terraform
+    enforcementType: HARD
+    failurePolicy: Fail
+    name: terraform-iaas-resource-policy
+    resourceRules:
+    - apiGroups:
+      - vmoperator.vmware.com
+      apiVersions:
+      - '*'
+      operations:
+      - CREATE
+      resources:
+      - virtualmachines
+    validationActions:
+    - Deny
+    validations:
+    - expression: request.resource.resource != "virtualmachines"
+      message: Virtual Machines are prohibited to be provisioned in the namespace.

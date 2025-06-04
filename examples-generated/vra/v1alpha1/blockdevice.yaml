@@ -1,0 +1,14 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: BlockDevice
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/blockdevice
+  labels:
+    testing.upbound.io/example-name: disk1
+  name: disk1
+spec:
+  forProvider:
+    capacityInGb: 10
+    name: terraform_vra_block_device1
+    persistent: true
+    projectId: ${var.project_id}

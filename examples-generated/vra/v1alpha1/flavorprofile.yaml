@@ -1,0 +1,18 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: FlavorProfile
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/flavorprofile
+  labels:
+    testing.upbound.io/example-name: my-aws-flavor-profile
+  name: my-aws-flavor-profile
+spec:
+  forProvider:
+    description: My AWS flavor
+    flavorMapping:
+    - instanceType: t2.small
+      name: small
+    - instanceType: t2.medium
+      name: medium
+    name: AWS
+    regionId: ${data.vra_region.aws.id}

@@ -1,0 +1,21 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: StorageProfileAzure
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/storageprofileazure
+  labels:
+    testing.upbound.io/example-name: this
+  name: this
+spec:
+  forProvider:
+    dataDiskCaching: None
+    defaultItem: false
+    description: Azure Storage Profile with managed disks.
+    diskType: Standard_LRS
+    name: azure-with-managed-disks-1
+    osDiskCaching: None
+    regionId: ${data.vra_region.this.id}
+    supportsEncryption: false
+    tags:
+    - key: foo
+      value: bar

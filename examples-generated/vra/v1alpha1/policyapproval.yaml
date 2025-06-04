@@ -1,0 +1,22 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: PolicyApproval
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/policyapproval
+  labels:
+    testing.upbound.io/example-name: policy_approval
+  name: policy-approval
+spec:
+  forProvider:
+    actions:
+    - Deployment.ChangeLease
+    approvalLevel: 1
+    approvalMode: ANY_OF
+    approvalType: ROLE
+    approvers:
+    - ROLE:PROJECT_ADMINISTRATORS
+    autoApprovalDecision: APPROVE
+    autoApprovalExpiry: 30
+    description: Approval Policy [terraform-approval-policy] created by Terraform
+    enforcementType: HARD
+    name: terraform-approval-policy

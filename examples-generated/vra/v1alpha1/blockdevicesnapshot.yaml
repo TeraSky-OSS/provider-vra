@@ -1,0 +1,12 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: BlockDeviceSnapshot
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/blockdevicesnapshot
+  labels:
+    testing.upbound.io/example-name: snapshot1
+  name: snapshot1
+spec:
+  forProvider:
+    blockDeviceId: ${var.block_device_id}
+    description: terraform fcd snapshot

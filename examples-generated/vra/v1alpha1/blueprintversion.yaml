@@ -1,0 +1,15 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: BlueprintVersion
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/blueprintversion
+  labels:
+    testing.upbound.io/example-name: this
+  name: this
+spec:
+  forProvider:
+    blueprintId: ${var.vra_blueprint_id}
+    changeLog: First version
+    description: Released from VMware Aria Automation terraform provider
+    release: true
+    version: ${(random_integer.suffix.result / random_integer.suffix.result)}

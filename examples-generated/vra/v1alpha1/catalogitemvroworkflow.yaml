@@ -1,0 +1,14 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: CatalogItemVROWorkflow
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/catalogitemvroworkflow
+  labels:
+    testing.upbound.io/example-name: catalog_item_vro_workflow
+  name: catalog-item-vro-workflow
+spec:
+  forProvider:
+    description: Catalog Item [terraform-vro-workflow] created by Terraform
+    name: terraform-vro-workflow
+    projectId: ${var.project_id}
+    workflowId: ${var.workflow_id}

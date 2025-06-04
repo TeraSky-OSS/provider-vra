@@ -1,0 +1,21 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: AzureCloudAccount
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/azurecloudaccount
+  labels:
+    testing.upbound.io/example-name: this
+  name: this
+spec:
+  forProvider:
+    applicationId: sample-application-id
+    applicationKeySecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    description: test cloud account
+    name: my-cloud-account-%d
+    regions:
+    - centralus
+    subscriptionId: sample-subscription-id
+    tenantId: sample-tenant-id

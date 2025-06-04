@@ -1,0 +1,24 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: Blueprint
+metadata:
+  name: basic-blueprint-crossplane-01
+spec:
+  forProvider:
+    content: |
+      formatVersion: 1
+      inputs:
+        image:
+          type: string
+          description: "Image"
+        flavor:
+          type: string
+          description: "Flavor"
+      resources:
+        Machine:
+          type: Cloud.Machine
+          properties:
+            image: $${input.image}
+            flavor: $${input.flavor}
+    description: Created by VMware Aria Automation crossplane provider
+    name: example-crossplane-01
+    projectId: 5ecca108-13ad-412c-95fa-9998bf939699

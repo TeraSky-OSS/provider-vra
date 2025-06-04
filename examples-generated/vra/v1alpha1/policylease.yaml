@@ -1,0 +1,16 @@
+apiVersion: vra.terasky.com/v1alpha1
+kind: PolicyLease
+metadata:
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/policylease
+  labels:
+    testing.upbound.io/example-name: policy_lease
+  name: policy-lease
+spec:
+  forProvider:
+    description: Lease Policy [terraform-lease-policy] created by Terraform
+    enforcementType: HARD
+    leaseGrace: 15
+    leaseTermMax: 30
+    leaseTotalTermMax: 100
+    name: terraform-lease-policy
