@@ -61,6 +61,7 @@ func buildProviderConfig(creds map[string]string) map[string]any {
 
 	return config
 }
+
 // TerraformSetupBuilder builds Terraform a terraform.SetupFn function which
 // returns Terraform provider setup configuration
 func TerraformSetupBuilder(version, providerSource, providerVersion string) terraform.SetupFn {
@@ -97,7 +98,7 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		}
 
 		ps.Configuration = buildProviderConfig(creds)
-		
+
 		return ps, nil
 	}
 }

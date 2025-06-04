@@ -1,7 +1,11 @@
 apiVersion: vra.terasky.com/v1alpha1
 kind: Blueprint
 metadata:
-  name: basic-blueprint-crossplane-01
+  annotations:
+    meta.upbound.io/example-id: vra/v1alpha1/blueprint
+  labels:
+    testing.upbound.io/example-name: this
+  name: this
 spec:
   forProvider:
     content: |
@@ -17,8 +21,8 @@ spec:
         Machine:
           type: Cloud.Machine
           properties:
-            image: $${input.image}
-            flavor: $${input.flavor}
-    description: Created by VMware Aria Automation crossplane provider
-    name: example-crossplane-01
-    projectId: 5ecca108-13ad-412c-95fa-9998bf939699
+            image: ${input.image}
+            flavor: ${input.flavor}
+    description: Created by VMware Aria Automation terraform provider
+    name: ${var.blueprint_name}
+    projectId: ${vra_project.this.id}
